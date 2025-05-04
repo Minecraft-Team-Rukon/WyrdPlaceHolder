@@ -1,0 +1,4 @@
+name: WyrdPlaceHolder
+version: '1.0'
+main: org.wyrd.wyrdPlaceHolder.WyrdPlaceHolder
+api-version: '1.20'
