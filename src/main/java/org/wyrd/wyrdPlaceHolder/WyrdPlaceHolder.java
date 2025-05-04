@@ -2,8 +2,8 @@ package org.wyrd.wyrdPlaceHolder;
 
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.wyrd.wyrdPlaceHolder.placeholders.ChannelHolder;
-import org.wyrd.wyrdPlaceHolder.placeholders.LevelHolder;
+import org.wyrd.wyrdPlaceHolder.placeholders.ServerDataExpansion;
+import org.wyrd.wyrdPlaceHolder.placeholders.PlayerDataExpansion;
 
 public final class WyrdPlaceHolder extends JavaPlugin {
 
@@ -12,8 +12,8 @@ public final class WyrdPlaceHolder extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        new LevelHolder().register();
-        new ChannelHolder().register();
+        new PlayerDataExpansion().register();
+        new ServerDataExpansion().register();
     }
 
     @Override

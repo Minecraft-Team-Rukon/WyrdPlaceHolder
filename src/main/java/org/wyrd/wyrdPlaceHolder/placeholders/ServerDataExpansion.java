@@ -1,15 +1,15 @@
 package org.wyrd.wyrdPlaceHolder.placeholders;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-import me.rukon0621.wyrddata.data.PlayerData;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.wyrd.wyrdutil.WyrdUtil;
 
-public class LevelHolder extends PlaceholderExpansion {
+public class ServerDataExpansion extends PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "wyrd_level";
+        return "wyrd";
     }
 
     @Override
@@ -24,7 +24,10 @@ public class LevelHolder extends PlaceholderExpansion {
 
     @Override
     public @Nullable String onPlaceholderRequest(Player player, @NotNull String params) {
-        if(PlayerData.isFullyLoaded(player)) return String.valueOf(PlayerData.get(player).getLevel());
-        return "0";
+        return switch (params) {
+            case "channel" -> WyrdUtil.getServerNumber();
+            default -> "?????";
+        };
+
     }
 }

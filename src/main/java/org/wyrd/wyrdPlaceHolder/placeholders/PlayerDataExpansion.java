@@ -7,10 +7,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.wyrd.wyrdutil.WyrdUtil;
 
-public class ChannelHolder extends PlaceholderExpansion {
+public class PlayerDataExpansion extends PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "wyrd_channel";
+        return "wyrd";
     }
 
     @Override
@@ -25,6 +25,10 @@ public class ChannelHolder extends PlaceholderExpansion {
 
     @Override
     public @Nullable String onPlaceholderRequest(Player player, @NotNull String params) {
-        return WyrdUtil.getServerNumber();
+        if(!PlayerData.isFullyLoaded(player)) return "?";
+        return switch (params) {
+            case "level" -> String.valueOf(PlayerData.get(player).getLevel());
+            default -> "?";
+        };
     }
 }
