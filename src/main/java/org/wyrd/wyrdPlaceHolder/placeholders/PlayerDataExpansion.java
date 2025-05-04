@@ -28,7 +28,7 @@ public class PlayerDataExpansion extends PlaceholderExpansion {
         if(!PlayerData.isFullyLoaded(player)) return "?";
         return switch (params) {
             case "level" -> String.valueOf(PlayerData.get(player).getLevel());
-            default -> "?";
+            default -> "?????";
         };
     }
 }
