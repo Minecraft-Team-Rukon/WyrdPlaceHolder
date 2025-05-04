@@ -10,7 +10,7 @@ import org.wyrd.wyrdutil.WyrdUtil;
 public class PlayerDataExpansion extends PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "wyrd";
+        return "wyrduser";
     }
 
     @Override
